@@ -1,9 +1,52 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Lab 501 Web Page</title>
+    <title>Lab 502 Web Page</title>
     <style>
-      
+      body {
+        background-color: #004942;
+        font-family: 'Calibri', 'Courier New', monospace;
+        color:white;
+        font-size:14;
+      }
+      #all {
+        text-align: left;
+        border-style: dotted;
+        border-color: gray;
+        padding: 25px;
+      }
+      #about {
+        border-left: 4px solid darkseagreen;
+        padding: 10px;
+      }
+      #weather {
+        background-color:lightblue;
+        font-family: 'Courier New', monospace;
+        color: black;
+        width:10%;
+        height:auto;
+        padding:5px;
+      }
+      #movieslist {
+        border-collapse: collapse;
+      }
+      #movieslist th, td {
+        border: 1px solid;
+        padding: 3px;
+      }
+      #img {
+        border-style: groove;
+        border-color: darkgoldenrod;
+        border-width: 6px;
+      }
+      .info {
+        font-size: 11px;
+        font-family: monospace;
+        font-weight: bold;
+      }
+      a:visited {
+        color:#D67FFF;
+      }
     </style>
   </head>
   <body>
@@ -14,16 +57,16 @@
     <h3>About:</h3>
 
     <div id = "about">
-      <p>Web page created by Anthony C, 03/03/2025 via github</p>
-      <p class = "info"> updated 03/11/2025</p>
+      Web page created by Anthony C, 03/03/2025 via github
+      <p class = "info">updated 03/14/2025</p>
       <img src="nessfreindsmove.gif">
-    </div>
+    </div> <br>
 
     <div id = "weather">
     <h4>Today's weather</h4> 
     <ul>
       <li>Cloudy</li>
-      <li>Warm</li>
+      <li>Cool</li>
       <li>Windy</li>
     </ul>
     </div>
@@ -39,42 +82,48 @@
 
 
     <h4>Last 5 movies I've watched</h4>
-    <p class="info">updated 03/11/25</p>
       <table id = "movieslist">
         <tr>
           <th>Title</th>
           <th>Director</th>
           <th>Year</th>
+          <th>Rating</th>
         </tr>
         <tr>
           <td>Summer Wars</td>
           <td>Mamoru Hosoda</td>
           <td>2009</td>
+          <td>★★★</td>
         </tr>
         <tr>
           <td>Barton Fink</td>
           <td>Joel Coen</td>
           <td>1991</td>
+          <td>★★★★</td>
         </tr>
         <tr>
           <td>I Saw the TV Glow</td>
           <td>Jane Schoenbrun</td>
           <td>2024</td>
+          <td>★★★⯨</td>
         </tr>
         <tr>
           <td>Monster</td>
           <td>Hirokazu Kore-eda</td>
           <td>2023</td>
+          <td>★★★★⯨</td>
         </tr>
         <tr>
           <td>Johnny Mnemonic</td>
           <td>Robert Longo</td>
           <td>1995</td>
+          <td>★★★</td>
         </tr>
       </table>
-      
-    <img src="cory_snowglobe.gif">
-    <p>Images sourced from <a href="https://gifcities.org">GifCities.org</a></p>
+      <br><br>
+    <img id = "img" src="cory_snowglobe.gif">
+    <br><br>
+    <p class="info">Images sourced from <a href="https://gifcities.org">GifCities.org</a></p>
     <img src="emailwin.gif">
   </div>
   </body>
