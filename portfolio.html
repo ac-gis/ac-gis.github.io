@@ -8,7 +8,7 @@
         font-family: 'Calibri', 'Helvetica', sans-serif;
         color:black;
         font-size:14;
-
+      }
         #info {
           position:fixed;
           left:8%;
@@ -20,6 +20,7 @@
         }
         #email {
           font-style:italic;
+          font-size: 12;
         }
         #gif {
           position:fixed;
@@ -27,40 +28,35 @@
           left:0px;
           padding:15px;
         }
-
         #main {
           position:absolute;
           left:30%;
-          opacity: 0;
-          transition: opacity 3s;
+          animation: fadeIn ease 2s;
         }
         @keyframes fadeIn {
           0% {opacity: 0;}
           100% {opacity: 1;}
         }
-
         .gallery {
           width: 850px;
           padding:2px;
         }
-
     </style>
   </head>
   <body>
-
     <div id="info">
       <h1>Anthony Cuevas</h1>
-      <p>GIS Mapping</p>
       <p id="email">acuevas3@msudenver.edu</p>
       <br>
-      <p>Example Works:</p>
+      <p>GIS Student Mapping</p>
+      <p>Example Works & Progression</p>
     </div>
 
     <div id="gif">
       <img src="globe.gif">
     </div>
     
-    <div id="main" onload="document.body.style.opacity='1'">
+    <div id="main">
       <br><br>
       <img class="gallery" src="2250_MiniProject1.png">
       <img class="gallery" src="L1map1-1.jpg">
@@ -69,8 +65,7 @@
       <img class="gallery" src="Miniproj_v8.jpg">
       <img class="gallery" src="L3Map1.jpg">
       <img class="gallery" src="L3Map3.jpg">
+      <br><br><br>
     </div>
-    
-
   </body>
 </html>
