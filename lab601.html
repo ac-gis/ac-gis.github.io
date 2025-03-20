@@ -103,15 +103,18 @@
         // "click here"
         $(".button1").click(function() {
           $("#intro").text("Welcome to my new and improved Lab 6 web page!");
+          console.log("first button/text replace pressed")
         }); 
         // weather reveal click
         $("#clickrev").click(function() {
           $("#forecast").toggle();
+          console.log("weather toggle pressed")
         });
         // snowglobe cycle
          $("#shake").click(function() {
           $("#snow1").fadeToggle();
           $("#snow2").fadeToggle();
+          console.log("snowglobe toggle pressed")
         });
       });
     </script>
