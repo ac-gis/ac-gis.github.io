@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lab 601 Web Page</title>
+    <style>
+      body {
+        background-color: #004942;
+        font-family: 'Calibri', 'Courier New', monospace;
+        color:white;
+        font-size:14;
+      }
+      #all {
+        text-align: left;
+        border-style: dotted;
+        border-color: gray;
+        padding: 25px;
+      }
+      #intro {
+        height:20px;
+      }
+      #about {
+        border-left: 4px solid darkseagreen;
+        padding: 10px;
+      }
+      #weather {
+        border-style: solid;
+        border-color: black;
+        background-color:lightblue;
+        font-family: 'Courier New', monospace;
+        color: black;
+        width:10%;
+        height:auto;
+        padding:5px;
+        opacity:0.9;
+      }
+      #movieslist {
+        border-collapse: collapse;
+      }
+      #movieslist th, td {
+        border: 1px solid;
+        padding: 3px;
+      }
+      #img {
+        border-style: groove;
+        border-color: darkgoldenrod;
+        border-width: 6px;
+      }
+      #welcome {
+        display:inline-flex;
+        align-items:center;
+        width:auto;
+      }
+      #double {
+        display:flex;
+        width:300px;
+        height:350px;
+        justify-content:center;
+      }
+      #snow2 {
+        position:absolute;
+      }
+      #snow3 {
+        position:absolute;
+      }
+      .button1 {
+        border:none;
+        background-color:#004942;
+        font-size:20px;
+        font-family: 'Cambria', 'Courier New', monospace;
+        color:white;
+        text-decoration:underline;        
+      }
+      .button1:hover {
+        color:forestgreen;
+      }
+      .info {
+        font-size: 12px;
+        font-family: monospace;
+        font-weight: bold;
+      }
+      .welcome1 {
+        float:left;
+        padding:10px;
+      }
+      .welcome2 {
+        float:right;
+        padding:10px;
+      }
+      .hidden {
+        display:none;
+      }
+      a:visited {
+        color:#D67FFF;
+      }
+      h1,h2,h3,h4,h5,h6 {
+        font-family: 'Cambria', 'Courier New', monospace;
+      }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        // "click here"
+        $(".button1").click(function() {
+          $("#intro").text("Welcome to my new and improved Lab 6 web page!");
+        }); 
+        // weather reveal click
+        $("#clickrev").click(function() {
+          $("#forecast").toggle();
+        });
+        // snowglobe cycle
+         $("#shake").click(function() {
+          $("#snow1").fadeToggle();
+          $("#snow2").fadeToggle();
+        });
+      });
+    </script>
+
+  </head>
+  <body>
+  <div id = "all">
+    <center>
+    <div id = "welcome">
+    <img class="welcome1" src="welcome.gif"> 
+    <h1>GIS3410 - Lab 6</h1>
+    <img class="welcome2" src="1.gif"> 
+    </div>
+    <div id="intro"><button class="button1">(CLICK HERE)</button></div>
+    </center>
+    
+
+    <h3>About:</h3>
+    <div id = "about">
+      Web page created by Anthony C, 03/03/2025 via github
+      <p class = "info">updated 03/19/2025</p>
+      <img src="nessfreindsmove.gif">
+    </div> <br>
+
+    <div id ="weather">
+    <h4><button id="clickrev">Today's weather 03/19/2025</button></h4> 
+    <ul id="forecast" class="hidden">
+      <li>Partly Cloudy</li>
+      <li>Cold</li>
+      <li>Windy</li>
+    </ul>
+    </div>
+
+    <h4>What I'm thinking of making for dinner (ranked)</h4>
+      <ol>
+        <li>Fried rice</li>
+        <li>Ramen</li>
+        <li>Pasta</li>
+        <li>Chicken</li>
+        <li>Black bean soup</li>
+      </ol>
+
+
+    <h3>Last 5 movies I've watched</h3>
+      <table id = "movieslist">
+        <tr>
+          <th>Title</th>
+          <th>Director</th>
+          <th>Year</th>
+          <th>Rating</th>
+        </tr>
+        <tr>
+          <td>Summer Wars</td>
+          <td>Mamoru Hosoda</td>
+          <td>2009</td>
+          <td>★★★</td>
+        </tr>
+        <tr>
+          <td>Barton Fink</td>
+          <td>Joel Coen</td>
+          <td>1991</td>
+          <td>★★★★</td>
+        </tr>
+        <tr>
+          <td>I Saw the TV Glow</td>
+          <td>Jane Schoenbrun</td>
+          <td>2024</td>
+          <td>★★★⯨</td>
+        </tr>
+        <tr>
+          <td>Monster</td>
+          <td>Hirokazu Kore-eda</td>
+          <td>2023</td>
+          <td>★★★★⯨</td>
+        </tr>
+        <tr>
+          <td>Johnny Mnemonic</td>
+          <td>Robert Longo</td>
+          <td>1995</td>
+          <td>★★★</td>
+        </tr>
+      </table>
+      <br><br>
+    <div id="double">
+      <img id="snow1" src="cory_snowglobe.gif">
+      <img id="snow2" class="hidden" src="polar_bear_snowglobe.gif">
+      <img id="snow3" class="hidden" src="mountainsnowglobe.gif">
+    </div>
+    <br>
+    <button id="shake">Shake</button>
+    <br><br>
+    <p class="info">Images sourced from <a href="https://gifcities.org">GifCities.org</a></p>
+    <img src="emailwin.gif">
+  </div>
+  </body>
+</html>
