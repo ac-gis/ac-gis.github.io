@@ -1,0 +1,198 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Mini Project 2 - Hangman</title>
+    <style>
+      body {
+        display:grid;
+        place-items:center;
+        background-color: #A796FF;
+        font-family: 'Helvetica';
+        text-align: center;
+      }
+      #header {
+        margin-bottom: 20px;
+      }
+      #alphabet { 
+        display:flex;
+        flex-direction:column;
+        margin:auto;
+        padding:20px;
+        text-transform:uppercase;
+        align-items:center;
+        justify-content:space-evenly;
+        font-family:'Trebuchet MS', sans-serif;
+        font-size:28px;
+      }
+      #word { 
+        font-size: 40px; 
+        font-family: 'Courier New', monospace;
+        font-weight: bold;
+        text-transform: uppercase;
+        padding: 30px;
+      }
+      #guesses {
+        padding:40px;
+        text-transform: none;
+        font-family: 'Helvetica';
+        font-size: 24px;
+        font-weight:bold;
+      }
+      #info { 
+        padding:20px; 
+        font-size:22px;
+        text-transform:none;
+        text-decoration:underline;
+      }
+      #win {
+        display:none;
+      }
+      .key { 
+        display:inline-block;
+        text-transform:uppercase;
+        padding:6px;
+        margin:auto;
+        width:32px;
+      }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+         $(document).ready( function() {
+              
+              // this is the secret word!
+            word = "b a s k e t b a l l"
+            blank= "_ _ _ _ _ _ _ _ _ _"
+          
+              $("#word").text(blank);
+
+              // this is the list of letters that have been tried
+              triedLetters = "";
+
+              // this is the number of tries left
+              tries = 6;
+              $("#guesses").text("Guesses remaining: "+tries);
+
+              // boolean (true / false variable) to track if game has been won or lost
+              gameWon = false;
+              gameLost = false;
+                   
+              // when a user clicks on a letter... this is where everything happens!
+              $(".key").click( function() {
+
+                  // check if the game has been won or lost
+                  if (gameWon != true && gameLost != true) {
+                    // erase the info box
+                    $("#info").text("");
+
+                    // use text to get the letter that was clicked on
+                    letter = $(this).text();
+                    console.log("clicked on: ", letter)
+
+                    // make a line through the letter
+                    $(this).css("background-color", "gray");
+
+                    // if the letter has already been clicked on, 
+                    // let the user know it's already been tried
+                    if (triedLetters.includes(letter)) {
+                    	$("#info").text("Letter already tried");
+                    }
+
+                    // if the letter isn't in the word, reduce
+                    // the number of tries and check if they lost
+                    	else if (! word.includes(letter)) {
+
+                      // reduce the number of remaining tries by 1
+                    	tries = tries - 1;
+                    	$("#guesses").text("Guesses remaining: " + tries);
+
+                      // are they out of tries? then they lost!
+                    	if (tries < 1) {
+                    		gameLost = true;
+                    		$("#info").text("GAME OVER");
+                    	}
+                    
+                    // otherwise, put a line through it and
+                    // add it to the found letters
+                    // and check if the player won or lost
+                    } else {
+
+                      // replace the blanks in the blanks variable 
+                      // with the letter that was clicked on
+                      // replace the blanks with letter in blank
+                      // and replace the letters with blanks in word
+                    	while (word.includes(letter)) {
+                    		index = word.indexOf(letter);
+                    		console.log("index of word is " + index);
+                    		word = word.substring(0, index) + " " + word.substring((index + 1));
+                    		blank = blank.substring(0, index) + letter + blank.substring((index + 1));
+
+                    		$("#word").text(blank);
+                    		console.log("word is ", word);
+                    		console.log("blank is ", blank);
+                    		}
+                      // check if the player has won the game
+                    	if (! blank.includes("_")) {
+                    		gameWon = true;
+                        $("#win").show();
+                    		$("#info").text("YOU WIN!");
+                    	}
+
+                    }
+
+                    // add the letter to letters already tried
+                    	triedLetters = triedLetters + letter;
+                    	console.log("triedLetters is " + triedLetters);
+                    	console.log("word is ", word);
+                  }
+              });
+
+             // 
+           
+         });
+      
+    </script>
+  </head>
+  <body>
+    <div id="header">
+    <h1>Hangman</h1>
+    <p>Guess the word!</p>
+    </div>
+    <div id="word"></div>
+    <div id="alphabet">
+      <div class="row">
+        <button class="key">q</button>
+        <button class="key">w</button>
+        <button class="key">e</button>
+        <button class="key">r</button>
+        <button class="key">t</button>
+        <button class="key">y</button>
+        <button class="key">u</button>
+        <button class="key">i</button>
+        <button class="key">o</button>
+        <button class="key">p</button>
+      </div>
+      <div class="row">
+        <button class="key">a</button>
+        <button class="key">s</button>
+        <button class="key">d</button>
+        <button class="key">f</button>
+        <button class="key">g</button>
+        <button class="key">h</button>
+        <button class="key">j</button>
+        <button class="key">k</button>
+        <button class="key">l</button>
+      </div>
+      <div class="row">
+        <button class="key">z</button>
+        <button class="key">x</button>
+        <button class="key">c</button>
+        <button class="key">v</button>
+        <button class="key">b</button>
+        <button class="key">n</button>
+        <button class="key">m</button>
+      </div>
+      <div id="guesses"></div>
+      <div id="info"></div>
+      <div id="win"><img src="16.gif"></div>
+  </body>
+</html>
